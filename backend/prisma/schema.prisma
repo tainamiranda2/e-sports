@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://admin:admin@localhost:5432"
+}
+
+model Time{
+  id Int @id @default(autoincrement())
+  name String
+}
+model Jogador {
+  id Int @id @default(autoincrement())
+  name  String
+  idade Int
+  time_id Int
+}
