@@ -16,14 +16,30 @@ export const Jogador=()=>{
 
 
   async function createJogador(){
-  
+   // console.log("oi",name, idade, time_id)
+  //  console.log(typeof(time_id))
+    let mudarTime_id=parseInt(time_id)
+    let mudarIdade=parseInt(idade)
+   // console.log(typeof(mudar))
+
     const response = await axios.post("http://localhost:3333/jogador",{
-      name:name
+      name:name,
+      idade:mudarIdade,
+      time_id:mudarTime_id
     })
  
-   setName("")
-  
   }
+  let idJogador=[]
+  let idTime=[]
+let timeslibrados=[]
+
+let teste=todos.map((teste1)=>{
+ return teste1
+})
+  //console.log("id do jogador",) 
+
+  console.log("id do time ", teste)
+
   useEffect(()=>{
     getTodos()
   })
@@ -32,31 +48,40 @@ export const Jogador=()=>{
         <div>
             <h1>Cadastre um jogador para seu time </h1>
             <div className='form'>
+            <div className=''
+              
+                >
+                   <select type="button"  
+    placeholder="Informe o nome do time"
+  name={time_id}
+   onChange={(e)=>setTime_id(e.target.value)}
+   >
+{todos.map((option)=>(
+  <>
+  
+  <option value={option.id} key={option.id}>{option.name}</option>
+ 
+   
+   </>
+))}
+</select>
                 <Input type="text"
             text="Nome do jogador"
                 placeholder="Informe o nome do jogador"
                 value={name}
+                name={name}
                 onChange={(e)=>setName(e.target.value)}
                 />
                 <Input type="number"
             text="Idade do jogador"
                 placeholder="Informe a idade"
                 value={idade}
-                onChange={(e)=>setName(e.target.value)}
+                name={idade}
+                onChange={(e)=>setIdade(e.target.value)}
                 />
                 <br/>
-                <select
-                placeholder="Informe o nome do time"
-                value={time_id}
-                onChange={(e)=>setTime_id(e.target.value)}
-                >
-{todos.map((option)=>(
-  <option  key={option.id}>{option.name}</option>
-))}
-                
-
-                  </select>
-
+ 
+                  </div>
 
                 <button onClick={createJogador}>Enviar</button>
             </div>
