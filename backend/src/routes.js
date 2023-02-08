@@ -1,11 +1,11 @@
 
 const { request, response } = require("express");
 const express =require("express")
-
+const e_sportsRoutes=express.Router()
 const {PrismaClient} = require("@prisma/client")
 const prisma =new PrismaClient();
 
-const e_sportsRoutes=express.Router()
+
 
 e_sportsRoutes.post("/time", async(request, response)=>{
     const {name}=request.body;

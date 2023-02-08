@@ -5,7 +5,7 @@
 
 ## banco de dados - postgre
 ### docker(imagem do postgre), prisma(comunicação)
-
+### comandos docker - docker compose up -d
 ## frontend - react
 
 ### react-router, react-icons, axios
