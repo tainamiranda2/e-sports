@@ -4,8 +4,13 @@
 ### nodemon, express, cors
 
 ## banco de dados - postgre
-### docker(imagem do postgre), prisma(comunicação)
+### docker(imagem do postgre), 
+
 ### comandos docker - docker compose up -d
+
+### prisma(comunicação) 
+### comandos prisma - npx prisma 
+
 ## frontend - react
 
 ### react-router, react-icons, axios
