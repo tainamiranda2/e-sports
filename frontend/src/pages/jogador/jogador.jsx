@@ -8,7 +8,7 @@ export const Jogador=()=>{
   const  [todos, setTodos] =useState([])
 
     const [name, setName]=useState('')
-    const  [time_id, setTime_id] =useState('')
+    const  [time_id] =useState(id)
 
     const  [idade, setIdade] =useState('')
 
@@ -20,19 +20,20 @@ export const Jogador=()=>{
     
 
   async function createJogador(){
-    atualizardado()
-    let mudarTime_id=parseInt(time_id)
-    let mudarIdade=parseInt(idade)
 
+ 
+    let mudarIdade=parseInt(idade)
+let mudarId=parseInt(time_id)
     const response = await axios.post("http://localhost:3333/jogador",{
       name:name,
       idade:mudarIdade,
-      time_id:mudarTime_id
+      time_id: mudarId
     })
  alert("Cadastrado com sucesso.")
-
+setIdade("")
+setName("")
   }
- 
+
 //verificados ido dos jogadores
 let testeJogador=todos.map((ver)=>(
   ver.time_id
@@ -42,15 +43,17 @@ let testeJogador=todos.map((ver)=>(
   let idJogador=testeJogador.filter(idTime=>idTime==id)
 
  // console.log("id do time igual do jogador", idJogador)
- const atualizardado=()=>{
-  setTime_id(id)
-  
-  }
+ 
 if(idJogador.length>=5){
 alert("Grupo cheio, aqui para voltar")
 window.history.back()
 }
 
+
+/*const atualizardado=()=>{
+  setTime_id(id)
+  
+  }*/
 
 
   useEffect(()=>{
@@ -78,10 +81,10 @@ window.history.back()
                 />
                 <br/>
  
-                  </div>
+              
 
                 <button onClick={createJogador}>Enviar</button>
-          
+                </div>
         </div>
     )
 }

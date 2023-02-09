@@ -1,6 +1,9 @@
 import {useState,useEffect} from 'react'
 import axios from 'axios'
 import  './style.css'
+import notfould from '../../img/not.png'
+import jogador from '../../img/jogador.png'
+
 export const Home=()=>{
 
     const  [todos, setTodos] =useState([])
@@ -14,18 +17,31 @@ export const Home=()=>{
   })
     return(
         <div>
-            <h1>Veja todos os times e jogadores já cadastrados</h1>
+            <h1>Veja todos os jogadores já cadastrados</h1>
       <p>E-Sposts é uma modalidade de sports de jogos online</p>
     <article>
     <section >
-    <h2>Jogadores:</h2>
-        {todos.map((time)=>(
+
+        {todos && todos.length ===0?(
+          <>
+        <p>Não foram encontrados nenhum jogador cadastrados</p>
+        <img src={notfould}/>
+        </>
+        ):(
+<>
+<h2>Jogadores:</h2>
+     {todos && todos.map((time)=>
+     <>
+  
           <div className='card-session'>
-<h3 key={time.id}>Nome- {time.name}</h3>
+<img src={jogador}/>
+<h3 key={time.id}>Nome - {time.name}</h3>
 <p >idade - {time.idade}</p>
-<span >Time - {time.time_id}</span>
 </div>
-        ))}
+</>
+      )}
+</>
+     )}
 
     </section>
 

@@ -9,3 +9,7 @@
 ## frontend - react
 
 ### react-router, react-icons, axios
+
+<img src='./telaj.png'/>
+<img src='./time.png'/>
+<img src='./form.png'/>

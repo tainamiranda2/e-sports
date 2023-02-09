@@ -17,6 +17,7 @@ button:hover {
 }
 
 .form{
+  
   width:50%;
   color: #000 ;
   display: block;
@@ -27,4 +28,22 @@ margin-bottom: 50px;
 }
 .labelNone{
   display:none;
+}
+img{
+  width: 80%;
+  margin-left: auto;
+margin-right: auto;
+margin-bottom: 5px;
+}
+h1,h2,p {
+  text-align: center;
+  margin: 5px;
+}
+a {
+  text-decoration: none;
+  color: #000;
+  margin: 15px;
+}
+a:hover{
+  color:#e4c203;
 }

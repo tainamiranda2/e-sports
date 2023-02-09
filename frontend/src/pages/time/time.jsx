@@ -2,6 +2,8 @@ import { useState,useEffect } from 'react'
 import axios from 'axios'
 import { Link } from "react-router-dom"
 import { Input } from "../../components/input/input"
+import notfould from '../../img/not.png'
+import jogo from '../../img/jogo.png'
 
 export const Time=()=>{
     const [name, setName]=useState('')
@@ -27,18 +29,31 @@ export const Time=()=>{
   })
     return(
         <div>
-         <h3>Times criados</h3>
+     
           
-           <h2>Times:</h2>
-        {todos.map((time)=>(
-           <div className='card-session'>
-<h3 key={time.id}>{time.name}</h3>
-<Link to={`/jogador/${time.id}`}>Click aqui para cadatrar-se nesse time</Link>
-</div>
-        ))}
-       
+         {todos && todos.length ===0?(
+          <>
+                <p>Não foram encontrados nenhum time cadastrados</p>
+<img src={notfould}/>
+</>
+        ):(
+          <>
+          <h2>Estes times estão cadastrados</h2>
+          {todos.map((time)=>(
+           <>
           
+             <div className='card-session'>
+  <h3 key={time.id}>{time.name}</h3>
+  <img src={jogo}/>
+  <br/>
+  <Link to={`/jogador/${time.id}`}>Cadastrar-se nesse time</Link>
+  </div>
+  </>
 
+        ))}
+        </>
+     ) }
+          
             <div className='form'>
             <h3>Cadastre um time </h3>
                 <Input type="text"
