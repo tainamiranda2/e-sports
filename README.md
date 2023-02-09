@@ -1,4 +1,4 @@
-## para clonar o poejto basta usar o gitclone + npm i para instalar as dependencias
+## para clonar o projeto basta usar o git clone (com o link do projeto)+ npm i para instalar as dependencias
 
 ## backend - nodejs
 ### nodemon, express, cors
@@ -11,5 +11,7 @@
 ### react-router, react-icons, axios
 
 <img src='./telaj.png'/>
+<br/>
 <img src='./time.png'/>
+<br/>
 <img src='./form.png'/>
