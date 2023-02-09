@@ -11,10 +11,10 @@ export const Navbar=()=>{
     <Link to="/">Home</Link>
     </li>
     <li>
-    <Link to="/Time">Time</Link>
+    <Link to="/Time">Times</Link>
     </li>
     <li>
-    <Link to="/Jogador">Jogador</Link>
+ {/*<Link to="/Jogador">Jogador</Link>*/}  
     </li>
   
 </ul>

@@ -11,7 +11,8 @@ export const Rotas=()=>{
        
         <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/Jogador' element={<Jogador/>}/>
+    {/*   <Route path='/Jogador' element={<Jogador/>}/> */} 
+    <Route path='/Jogador/:id' element={<Jogador/>}/> 
         <Route path='/Time' element={<Time/>}/>
 
         </Routes>

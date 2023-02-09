@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react'
 import axios from 'axios'
-
+import { Link } from "react-router-dom"
 import { Input } from "../../components/input/input"
 
 export const Time=()=>{
@@ -28,14 +28,15 @@ export const Time=()=>{
     return(
         <div>
          <h3>Times criados</h3>
-           <div className='card-session'>
+          
            <h2>Times:</h2>
         {todos.map((time)=>(
-          
+           <div className='card-session'>
 <h3 key={time.id}>{time.name}</h3>
-
+<Link to={`/jogador/${time.id}`}>Click aqui para cadatrar-se nesse time</Link>
+</div>
         ))}
-        </div>
+       
           
 
             <div className='form'>

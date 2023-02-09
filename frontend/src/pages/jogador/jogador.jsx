@@ -1,70 +1,67 @@
+import { useParams } from "react-router-dom";
 import {useState,useEffect} from 'react'
 import { Input } from "../../components/input/input"
 import axios from 'axios'
+
 export const Jogador=()=>{
+  const {id}=useParams()
   const  [todos, setTodos] =useState([])
+
     const [name, setName]=useState('')
-   
     const  [time_id, setTime_id] =useState('')
+
     const  [idade, setIdade] =useState('')
 
     async function getTodos (){
-      const response = await axios.get("http://localhost:3333/time")
+      const response = await axios.get("http://localhost:3333/jogador")
     setTodos(response.data)
+    
     }
-     
-
+    
 
   async function createJogador(){
-   // console.log("oi",name, idade, time_id)
-  //  console.log(typeof(time_id))
+    atualizardado()
     let mudarTime_id=parseInt(time_id)
     let mudarIdade=parseInt(idade)
-   // console.log(typeof(mudar))
 
     const response = await axios.post("http://localhost:3333/jogador",{
       name:name,
       idade:mudarIdade,
       time_id:mudarTime_id
     })
- 
+ alert("Cadastrado com sucesso.")
+
   }
-  let idJogador=[]
-  let idTime=[]
-let timeslibrados=[]
+ 
+//verificados ido dos jogadores
+let testeJogador=todos.map((ver)=>(
+  ver.time_id
+))
 
-let teste=todos.map((teste1)=>{
- return teste1
-})
-  //console.log("id do jogador",) 
+//filtrandos o time_id do jogadores igual ao id do time
+  let idJogador=testeJogador.filter(idTime=>idTime==id)
 
-  console.log("id do time ", teste)
+ // console.log("id do time igual do jogador", idJogador)
+ const atualizardado=()=>{
+  setTime_id(id)
+  
+  }
+if(idJogador.length>=5){
+alert("Grupo cheio, aqui para voltar")
+window.history.back()
+}
+
+
 
   useEffect(()=>{
     getTodos()
-  })
+    
+  },[])
 
     return(
         <div>
             <h1>Cadastre um jogador para seu time </h1>
             <div className='form'>
-            <div className=''
-              
-                >
-                   <select type="button"  
-    placeholder="Informe o nome do time"
-  name={time_id}
-   onChange={(e)=>setTime_id(e.target.value)}
-   >
-{todos.map((option)=>(
-  <>
-  
-  <option value={option.id} key={option.id}>{option.name}</option>
- 
-   
-   </>
-))}
-</select>
                 <Input type="text"
             text="Nome do jogador"
                 placeholder="Informe o nome do jogador"
@@ -84,7 +81,7 @@ let teste=todos.map((teste1)=>{
                   </div>
 
                 <button onClick={createJogador}>Enviar</button>
-            </div>
+          
         </div>
     )
 }
