@@ -22,7 +22,7 @@
 ### react-router, react-icons, axios
 
 <img src='./telaj.png'/>
-<br/>
+<hr/>
 <img src='./time.png'/>
 <br/>
 <img src='./form.png'/>
